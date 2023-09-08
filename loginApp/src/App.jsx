@@ -1,28 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
 
   //login form
   const [openLogin, setOpenLogin] = useState(true);
-  // register form
-  const [userInfo, setUserInfo] = useState([]);
-  // unique id
-  const [userId, setUserId] = useState(0);
  
   const handleLogin = (event) => {
     event.preventDefault();
+    //checks if both username and pass are provided
     if(event.target.logUser.value == "" || event.target.logPass.value == ""){
       console.log("Please enter both username and password!")
-    } else {
-
+    } 
+    else {
+      //gets users from local storage
       let temp =  JSON.parse(localStorage.getItem("userInfo"));
+      //checks if users are empty (null)
       let existingUsernames = temp === null ? [] : temp.map(user => user.userRegister);
       let registeredUsers = JSON.parse(localStorage.getItem("userInfo"));
       //if the username exists in users
       if(existingUsernames.includes(event.target.logUser.value)) {
         //find his pass and check if it matches
-        let target = registeredUsers.find(props => props.userRegister === event.target.logUser.value);
+        let target = registeredUsers.find(propers => propers.userRegister === event.target.logUser.value);
         if(target.passRegister === event.target.logPass.value){
           console.log("user is logged in successfully")
         } else {
@@ -51,24 +50,19 @@ function App() {
       if(existingUsernames.includes(e.target.userRegister.value)) {
         console.log("username already exists")
       } else {
+        //create an empty object to store the users
         const newUsers = temp;
-
         newUsers.push({userRegister: e.target.userRegister.value,
           passRegister: e.target.passRegister.value,
-          userId: userId
          })
-        
-        setUserInfo(newUsers);
+
         //save user info on the local storage
         localStorage.setItem("userInfo", JSON.stringify(newUsers));
         setOpenLogin(!openLogin);
         
-        console.log("user is registered successfully");
-         
+        console.log("user is registered successfully");  
         console.log("existing users:", newUsers)
       }
-      //generates the next user id
-      setUserId(userId+1);
     }
   }
   
@@ -118,5 +112,4 @@ function App() {
     </div> 
   )
 }
-
 export default App
