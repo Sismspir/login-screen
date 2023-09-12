@@ -31,9 +31,8 @@ function App() {
           console.log("wrong password")
         }
       } else {
-        console.log("Username does not exists", );
-      }
-      
+        console.log("Username does not exist", );
+      }    
     }
   }
 
@@ -58,7 +57,6 @@ function App() {
         newUsers.push({userRegister: e.target.userRegister.value,
           passRegister: e.target.passRegister.value,
          })
-
         //save user info on the local storage
         localStorage.setItem("userInfo", JSON.stringify(newUsers));
         setOpenLogin(!openLogin);
@@ -75,7 +73,7 @@ function App() {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen box-border [ui-sans-serif] text-lg bg-center text-center py-60 px-20" style={{backgroundImage: `url('${doorImage}')`, backgroundSize:"cover", backgroundRepeat: "no-repeat",backgroundColor: "black"}}>
-        <h1 className='mt-10 mb-5 text-4xl text-white'>STUNNING SIGN UP & LOGIN FORM</h1>  
+        <h1 className='mt-10 mb-14 text-5xl text-white'>STUNNING SIGN UP & LOGIN FORM</h1>  
         {openLogin ? (
         <div className="pl-10 pr-10 pt-4 pb-12 max-w-4xl relative shadow-btn-shadow rounded-md flex justify-center m-2">
           <div className=" absolute inset-0 opacity-40 bg-white"></div>
@@ -120,7 +118,7 @@ function App() {
         </div> ) 
           :
             <div className="pl-10 pr-10 pt-4 pb-12 max-w-4xl relative shadow-btn-shadow rounded-md flex justify-center m-2">
-              <div className=" absolute inset-0 opacity-40 bg-white"></div>
+              <div className="absolute inset-0 opacity-40 bg-white"></div>
                 <form className="z-10" onSubmit={handleRegister}>
                   <div className='flex justify-center mt-10'>
                   <Diamond  onClick={handleClick} size={52} className=""/>
@@ -163,7 +161,7 @@ function App() {
                 <div/>
               <div/>
           </div>}
-          <div className='mt-20 opacity-80 text-white'>&copy; 2018 Stunning sign up & login Form. All Rights Reserved | Design by W3Layouts</div>
+          <div className='mt-6 opacity-80 text-white'>&copy; 2018 Stunning sign up & login Form. All Rights Reserved | Design by W3Layouts</div>
         </div> 
   )
 }
