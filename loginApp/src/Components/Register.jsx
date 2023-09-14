@@ -23,14 +23,14 @@ function Register() {
         } 
         else {
           //if at least one user exists
-          let temp = JSON.parse(localStorage.getItem("userInfo")) ;
+          let temp = localStorage.getItem("userInfo") != "" ? JSON.parse(localStorage.getItem("userInfo")) : [];
           let existingUsernames = temp === null ? [] : temp.map(user => user.userRegister);
           //register the user if the username is unique
           if(existingUsernames.includes(e.target.userRegister.value)) {
             console.log("username already exists")
           } else {
             //create an empty object to store the users
-            const newUsers = temp;
+            const newUsers = temp === null ? [] : temp;
             newUsers.push({userRegister: e.target.userRegister.value,
               passRegister: e.target.passRegister.value,
              })

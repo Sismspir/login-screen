@@ -29,7 +29,6 @@ function Login() {
         let target = registeredUsers.find(propers => propers.userRegister === event.target.logUser.value);
         if(target.passRegister === event.target.logPass.value){
           console.log("user is logged in successfully")
-          // props.handleLoggedIn(true);
           localStorage.setItem("currentUser", JSON.stringify(event.target.logUser.value));
           handleNavigateHome();
         } else {
