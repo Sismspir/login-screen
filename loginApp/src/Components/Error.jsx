@@ -18,7 +18,7 @@ function Error(props) {
         }}
       >
         <div className="text-[6vh] font-medium mt-80 opacity-60 text-red-200">
-          {currentUser !== null && path != "Error" ? (
+          {currentUser !== undefined && path != "Error" ? (
             <h2>
               Path <br /> <br />
               {path} <br /> <br />
