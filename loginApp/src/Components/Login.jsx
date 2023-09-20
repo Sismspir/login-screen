@@ -94,20 +94,20 @@ function Login(props) {
             <div className="text-2xl font-medium m-2 text-white"> Login </div>
             <input
               placeholder="  Username"
-              className="h-10 w-80 flex justify-center my-8 placeholder-gray-500"
+              className="h-10 w-80 flex justify-center my-8 placeholder-gray-500 outline-none"
               type="text"
               name="logUser"
               key="login-input"
             />
             <input
               placeholder="  Password"
-              className="h-10 w-80 flex justify-center my-8 placeholder-gray-500"
+              className="h-10 w-80 flex justify-center my-8 placeholder-gray-500 outline-none"
               type="text"
               name="logPass"
               key="login-passwrd"
             />
             <input
-              className="text-white w-80 border-2 border-white bg-pink-btn pt-1.5 pb-1.5 mt-2 mb-6"
+              className="text-white w-80 border-2 border-white bg-pink-btn pt-1.5 pb-1.5 mt-2 mb-6 outline-none"
               type="submit"
               value="LOGIN"
             />

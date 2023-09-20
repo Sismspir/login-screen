@@ -89,21 +89,21 @@ function Register() {
           <div className="text-2xl font-medium m-2 text-white"> Sign Up </div>
           <input
             placeholder="  Username"
-            className="h-10 w-80 flex justify-center my-8 placeholder-gray-500"
+            className="outline-none h-10 w-80 flex justify-center my-8 placeholder-gray-500"
             type="text"
             name="userRegister"
             key="register-input"
           />
           <input
             placeholder="  Password"
-            className="h-10 w-80 flex justify-center my-8 placeholder-gray-500"
+            className="outline-none h-10 w-80 flex justify-center my-8 placeholder-gray-500"
             type="text"
             name="passRegister"
             key="register-pass"
           />
           <input
             placeholder="  Password Again"
-            className="h-10 w-80 flex justify-center my-8 placeholder-gray-500"
+            className="outline-none h-10 w-80 flex justify-center my-8 placeholder-gray-500"
             type="text"
             name="passAgain"
             key="pass-again"
