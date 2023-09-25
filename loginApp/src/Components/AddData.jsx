@@ -1,14 +1,52 @@
-import { useNavigate as navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { PiKeyReturnLight as Return } from "react-icons/pi";
 function AddData() {
+  const newCarObject = {};
+  const navigate = useNavigate();
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const existingUsers = JSON.parse(localStorage.getItem("userInfo"));
+  const indexToUpdate = existingUsers.findIndex(
+    (item) => item.userRegister === currentUser
+  );
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  //initialize table columns based on the first element
   const currentTableKeys = Object.keys(userInfo[0].table[0]);
-  console.log(Object.keys(userInfo[0].table[0]));
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    for (let i = 0; i < currentTableKeys.length; i++) {
+      if (event.target[currentTableKeys[i]].value.trim() === "") {
+        alert("No empty values please...");
+        return;
+      }
+      newCarObject[currentTableKeys[i]] =
+        event.target[currentTableKeys[i]].value.trim();
+    }
+    existingUsers[indexToUpdate].table.push(newCarObject);
+    localStorage.setItem("userInfo", JSON.stringify([...existingUsers]));
+    alert("Your item added successfully!");
+    console.log(JSON.parse(localStorage.getItem("userInfo")));
+    goHome();
+  };
+
+  const goHome = () => {
+    navigate("/home");
+  };
 
   return (
-    <div className="bg-[#FEF7FF] text-center p-4 text-[3vh]  text-[#9B89B3] min-h-screen">
+    <div className="bg-[#FEF7FF] text-center p-4 text-[3vh] text-[#9B89B3] min-h-screen">
+      <div
+        onClick={goHome}
+        className="text-5xl text-[#eba743] hover:bg-[#fefffb] hover:rotate-12 ml-[82vw] mr-[10vw] justify-end"
+      >
+        <Return />
+      </div>
       <h2 className="font-bold">Add Data</h2>
       <div className="font-semibold flex justify-center">
-        <form className="rounded-md border-2 border-[#845EC2] m-2 max-w-[60vw] min-w-[40vw]">
+        <form
+          onSubmit={handleSubmit}
+          className="shadow-btn-shadow rounded-md border-2 border-[#845EC2] pr-5 m-2 max-w-[60vw] min-w-[40vw]"
+        >
           {currentTableKeys.map((tableLabel, index) => (
             <div
               className="rounded-md text-center m-2 flex flex-col"
@@ -23,6 +61,11 @@ function AddData() {
               ></input>
             </div>
           ))}
+          <input
+            className="rounded-md m-2 p-2 border-2 border-[#9B89B3] bg-[#f5f5eb] hover:bg-[#FEFEDF]"
+            type="submit"
+            value="Submit"
+          />
         </form>
       </div>
     </div>

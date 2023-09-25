@@ -97,14 +97,14 @@ function Register() {
           <input
             placeholder="  Password"
             className="outline-none h-10 w-80 flex justify-center my-8 placeholder-gray-500"
-            type="text"
+            type="password"
             name="passRegister"
             key="register-pass"
           />
           <input
             placeholder="  Password Again"
             className="outline-none h-10 w-80 flex justify-center my-8 placeholder-gray-500"
-            type="text"
+            type="password"
             name="passAgain"
             key="pass-again"
           />
@@ -123,11 +123,11 @@ function Register() {
             <Svg className={pintClass} path={pintPath}></Svg>
           </div>
           {successfullRegister === "error" ? (
-            <div className="absolute border rounded-2xl -ml-8 -mt-8 pt-2 pb-5 w-[40vh] h-22 bg-[#ff4f4b] text-2xl font-medium text-white opacity-80">
+            <div className="absolute border rounded-2xl  -mt-12 pt-2 pb-5 bg-[#ff4f4b] text-2xl font-medium text-white opacity-80">
               {errorMessage}
             </div>
           ) : successfullRegister === "success" ? (
-            <div className="absolute border rounded-2xl -ml-8 -mt-8 pt-2 pb-5 w-[40vh] h-22 bg-[#85ff7a] text-2xl font-medium text-white opacity-80">
+            <div className="absolute border rounded-2xl -mt-12 pt-2 pb-5 h-22 bg-[#85ff7a] text-2xl font-medium text-white opacity-80">
               You have registered successfully!
             </div>
           ) : (

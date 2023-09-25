@@ -23,7 +23,7 @@ export default {
         'pink-bg': '#efabbf',
       },
       boxShadow: {
-        'btn-shadow':'4px 4px 14px 4px 	#4e535a',
+        'btn-shadow':'4px 4px 12px 2px 	#444952',
       },
       border: {
         'border-lines': 'border-gray-200',

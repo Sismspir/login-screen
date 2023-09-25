@@ -29,15 +29,15 @@ function Home() {
           onClick={handleClickLogin}
           className="shadow-btn-shadow font-medium opacity-60 bg-sky-300 p-10 mt-10 border-4 border-sky-200 flex-1 self-center flex items-center
         text-2xl text-slate-900 -rotate-12 transition-opacity duration-200 hover:opacity-75
-        transition-transform hover:rotate-12"
+        transition-transform hover:rotate-6"
         >
           Login
         </div>
         <div
           onClick={handleClickHome}
           className="shadow-btn-shadow font-medium opacity-60 bg-pink-bg p-10 ml-40 border-4 border-sky-200 flex-1 self-start flex items-center
-        text-2xl text-sky-900 rotate-6 transition-opacity duration-200 hover:opacity-75
-        transition-transform hover:-rotate-12"
+        text-2xl text-sky-900 rotate-12 hover:opacity-75
+        transition-all hover:-rotate-45"
         >
           Home
         </div>
@@ -45,7 +45,7 @@ function Home() {
           onClick={handleClickRegister}
           className="shadow-btn-shadow font-medium opacity-60 bg-sky-900 p-10 mb-24 mr-40 border-4 border-sky-200 flex-1 self-end flex items-center
         text-2xl text-sky-100 -rotate-12 transition-opacity duration-200 hover:opacity-75
-        transition-transform hover:rotate-12"
+        transition-transform hover:rotate-6"
         >
           Register
         </div>

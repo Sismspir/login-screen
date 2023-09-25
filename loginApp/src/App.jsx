@@ -1,11 +1,12 @@
+import "./App.css";
 import Register from "./Components/Register";
 import Login from "./Components/Login";
 import Interior from "./Components/Interior";
 import Error from "./Components/Error";
 import Home from "./Components/Home";
 import AddData from "./Components/AddData";
+import EditData from "./Components/EditData";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./App.css";
 import { useState } from "react";
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
       ? JSON.parse(localStorage.getItem("currentUser"))
       : ""
   );
-  console.log();
+
   return (
     <>
       <Router>
@@ -22,8 +23,14 @@ function App() {
           <Route path="/" element={<Home />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route
+            path="/edit/:itemIndex"
+            element={
+              curUser != null && curUser != "" ? <EditData /> : <Error />
+            }
+          ></Route>
+          <Route
             path="/add"
-            element={curUser != null ? <AddData /> : <Error />}
+            element={curUser != null && curUser != "" ? <AddData /> : <Error />}
           ></Route>
           <Route
             path="/login"
